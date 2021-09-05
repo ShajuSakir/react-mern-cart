@@ -1,0 +1,84 @@
+.sidedrawer{
+    width: 70%;
+    height: 100vh;
+    background: #fff;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;/*above backdrop 100*/
+    transform:translateX(-100%); /*move 100% out of the screen*/
+    transition: all 0.3s ease-out; /* start fast and in slow*/
+    /* to make the content inside sidedrawer v-center */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidedrawer.show {
+    transform: translateX(0); /* translate it back */
+     
+}
+
+
+.sidedrawer__links{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.sidedrawer__links > li{
+    display: flex;
+    align-items: center;
+}
+
+.sidedrawer__links > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1; /* it give us the entire space */
+    padding: 1rem;
+    text-decoration: none;
+    color: #171717;
+    font-size: 1.6rem;
+}
+
+.sidedrawer__links > li > a:hover{
+    background: #171717;
+    color: #f4f4f4;
+}
+
+/*to place separation between cart icon and its quantity*/
+.sidedrawer__links > li > a > span{
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.sidedrawer__cartbadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #171717;
+    color: #f4f4f4;
+    font-size: 1rem;
+    margin-left: 8px;
+}
+
+/*when we hover over the a tag , we want to switch the .sidedrawer__cartbadge text */
+.sidedrawer__links > li > a:hover .sidedrawer__cartbadge{
+    background: #f4f4f4;
+    color: #171717;
+}
+
+/* no need to show sidedrawer for non mobile view */
+
+@media (min-width: 960px) {
+    .sidedrawer { 
+        display: none;
+    }    
+}
